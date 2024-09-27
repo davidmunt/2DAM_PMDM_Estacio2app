@@ -14,8 +14,8 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            OptionButton(isYes: true, onPressed: () => context.go('/yes')),
-            OptionButton(isYes: false, onPressed: () => context.go('/no')),
+            OptionButton(isYes: true, onPressed: () => context.go('yes')),
+            OptionButton(isYes: false, onPressed: () => context.go('no')),
           ],
         ),
       ),
