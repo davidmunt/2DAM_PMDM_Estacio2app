@@ -10,11 +10,11 @@ final GoRouter router = GoRouter(
       builder: (context, state) => HomeScreen(),
     ),
     GoRoute(
-      path: '/yes',
+      path: 'yes',
       builder: (context, state) => YesScreen(),
     ),
     GoRoute(
-      path: '/no',
+      path: 'no',
       builder: (context, state) => NoScreen(),
     ),
   ],
