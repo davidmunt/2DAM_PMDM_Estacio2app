@@ -40,8 +40,6 @@ class _MainAppState extends State<MainApp> {
           });
         },
       ),
-              // Text('Hello World!',
-              // style: Theme.of(context).textTheme.displayLarge),
         ),
       ),
     );
