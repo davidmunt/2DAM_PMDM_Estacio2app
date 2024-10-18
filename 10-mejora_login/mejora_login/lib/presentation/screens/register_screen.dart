@@ -11,51 +11,46 @@ class RegisterScreen extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: const Text('Crear usuario')),
         body: Center(
-  child: ElevatedButton(
-    onPressed: () async {
-      // Mostrar el formulario de usuario en un diálogo
-      Usuario? usuario = await showDialog<Usuario?>(
-        context: context,
-        builder: (BuildContext context) {
-          return const AlertDialog(
-            title: Text('Registro de Usuario'),
-            content: FormUser(),  // Formulario dentro del diálogo
-          );
-        },
-      );
-
-      // Manejar el resultado del formulario
-      String mensaje;
-      if (usuario != null) {
-        mensaje = 'Usuario creado con exito: ${usuario.email}';
-      } else {
-        mensaje = 'Registro cancelado';
-      }
-
-      // Mostrar el resultado en un AlertDialog
-      showDialog<void>(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text('Resultado'),
-            content: Text(mensaje),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
+          child: ElevatedButton(
+            child: const Text('Registrate'),
+            onPressed: () async {
+              Usuario? usuario = await showDialog<Usuario?>(
+                context: context,
+                builder: (BuildContext context) {
+                  return const AlertDialog(
+                    title: Text('Registro de Usuario'),
+                    content: FormUser(),
+                  );
                 },
-                child: const Text('OK'),
-              ),
-            ],
-          );
-        },
-      );
-    },
-    child: const Text('Registrar Usuario'),
-  ),
-),
+              );
+              String mensaje;
+              if (usuario != null) {
+                mensaje = "Se ha creado el usuario con el email: ${usuario.email}";
+              }else{
+                mensaje = "Has cancelado la creacion del usuario...";
+              }
+              return showDialog<void>(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('Registro'),
+                    content: Text(mensaje),
+                    actions: <Widget>[
+                      TextButton(
+                        //boton para aceptar y salir
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('OK'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            }
+          )
+        )
       ),
-      // const FormUser()
     );
   }
 }

@@ -166,6 +166,7 @@ class _FormUserState extends State<FormUser> {
                               .where((entry) => entry.value)
                               .map((entry) => entry.key)
                               .toList();
+
                           Usuario usuario = Usuario(
                             nombre: nombre,
                             apellidos: apellido,
@@ -174,6 +175,7 @@ class _FormUserState extends State<FormUser> {
                             sexo: sexo!,
                             aficiones: aficiones,
                           );
+
                           Navigator.pop(context, usuario);
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -193,3 +195,4 @@ class _FormUserState extends State<FormUser> {
     );
   }
 }
+
